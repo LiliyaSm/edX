@@ -1,0 +1,32 @@
+def lowpay(balance, annualInterestRate):
+
+    """
+    balance - the outstanding balance on the credit card
+    annualInterestRate - annual interest rate as a decimal
+    LowestPayment - minimum monthly payment rate as a decimal
+
+    returns: Lowest Payment
+    """
+    
+    # monthly payment and remaining balance
+    monthlyInterestRate = annualInterestRate/12   
+    initialbalance = balance
+    LowestPayment = 10
+
+    def balanceCalculate(balance, LowestPayment):
+
+            for i in range(12):        
+                # Monthly unpaid balance 
+                balance = balance - LowestPayment
+                # Updated balance each month
+                balance = balance + monthlyInterestRate * balance 
+            return balance
+
+
+    
+    while balanceCalculate(initialbalance, LowestPayment) > 0:
+        LowestPayment += 10
+        balanceCalculate(initialbalance, LowestPayment)
+
+
+    return LowestPayment
