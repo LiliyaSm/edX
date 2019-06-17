@@ -23,8 +23,6 @@ def lowpay(balance, annualInterestRate):
             lowerBound = lowestPayment
         lowestPayment = (upperBound+lowerBound)/2
         newBalance = balanceCalculate(initialbalance, lowestPayment)
-        print(newBalance)
-        print("lowestPayment "+ str(lowestPayment))
     return round (lowestPayment, 2)
 
 print(lowpay (320000, 0.2))
